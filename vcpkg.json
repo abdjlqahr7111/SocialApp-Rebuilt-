@@ -1,0 +1,16 @@
+{
+  "name": "socialapp",
+  "version": "1.0.0",
+  "description": "Social media app with video stories and rooms",
+  "dependencies": [
+    "qt6-base",
+    "qt6-multimedia",
+    "qt6-declarative",
+    "qt6-quickcontrols2",
+    {
+      "name": "sqlite3",
+      "features": ["json1"]
+    }
+  ],
+  "builtin-baseline": "a42af01b72c28a8e1d7b48107b33e4f286a55ef6"
+}
