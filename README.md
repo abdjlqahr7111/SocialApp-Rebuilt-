@@ -1,7 +1,7 @@
 # SocialApp - تطبيق التواصل الاجتماعي 🎥
 
 ## 🎯  حالة المشروع
-[![Build Android APK](https://github.com/@abdjlqahr7111/SocialApp-Rebuilt/actions/workflows/build_android.yml/badge.svg)](abdjlqahr7111)
+[![Build Android APK](https://github.com/abdjlqahr7111/SocialApp-Rebuilt/actions/workflows/build_android.yml/badge.svg)](abdjlqahr7111)
 
 ## 📱 كيفية تشغيل البناء
 1. اذهب إلى تبويب **Actions** (أعلى الشاشة)
