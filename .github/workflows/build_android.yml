@@ -52,12 +52,25 @@ jobs:
         restore-keys: |
           qt6-android-${{ matrix.abi }}-
 
+    - name: Install Ninja
+      run: sudo apt-get update && sudo apt-get install -y ninja-build
+
+    - name: Set VCPKG triplet
+      id: set_triplet
+      run: |
+        if [ "${{ matrix.abi }}" == "arm64-v8a" ]; then
+          echo "triplet=arm64-android" >> $GITHUB_OUTPUT
+        elif [ "${{ matrix.abi }}" == "armeabi-v7a" ]; then
+          echo "triplet=arm-android" >> $GITHUB_OUTPUT
+        fi
+
     - name: Configure CMake
       run: |
         cmake -B build \
           -S . \
+          -G Ninja \
           -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake \
-          -DVCPKG_TARGET_TRIPLET=arm64-android \
+          -DVCPKG_TARGET_TRIPLET=${{ steps.set_triplet.outputs.triplet }} \
           -DANDROID_ABI=${{ matrix.abi }} \
           -DANDROID_PLATFORM=android-33 \
           -DANDROID_NDK=${{ env.ANDROID_NDK_HOME }} \
